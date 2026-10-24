@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 type TopoProps = {
   menuAberto: boolean;
   onToggleMenu: () => void;
@@ -5,8 +7,17 @@ type TopoProps = {
 };
 
 export function Topo({ menuAberto, onToggleMenu, onNavClick }: TopoProps) {
+  const [rolado, setRolado] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setRolado(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="topo">
+    <header className={`topo ${rolado ? "topo--rolado" : ""}`}>
       <a href="#inicio" className="topo__marca">
         KRMG<span className="topo__marca-ponto">.</span>
       </a>
@@ -26,7 +37,7 @@ export function Topo({ menuAberto, onToggleMenu, onNavClick }: TopoProps) {
       <nav className={`topo__nav ${menuAberto ? "topo__nav--aberto" : ""}`}>
         <a href="#sobre" onClick={onNavClick}>Sobre</a>
         <a href="#projetos" onClick={onNavClick}>Projetos</a>
-        <a href="#contato" onClick={onNavClick}>Contato</a>
+        <a href="#contato" className="topo__cta" onClick={onNavClick}>Contato</a>
       </nav>
     </header>
   );

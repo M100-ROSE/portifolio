@@ -34,7 +34,7 @@ export function ProjetosSection({ projetos }: ProjetosSectionProps) {
             </ul>
             {projeto.link ? (
               <a href={projeto.link} className="card-projeto__link">
-                Ver projeto →
+                Ver projeto <span className="card-projeto__link-seta" aria-hidden="true">→</span>
               </a>
             ) : (
               <span className="card-projeto__link card-projeto__link--desabilitado">

@@ -52,9 +52,9 @@ const projetos: Projeto[] = [
 ];
 
 const contatos: Contato[] = [
-  { label: "E-mail", valor: "kaikeguerlinguer@gmail.com" },
-  { label: "GitHub", valor: "M100-ROSE" },
-  { label: "LinkedIn", valor: "Kaike Guerlinguer" },
+  { label: "E-mail", valor: "kaikeguerlinguer@gmail.com", href: "mailto:kaikeguerlinguer@gmail.com" },
+  { label: "GitHub", valor: "M100-ROSE", href: "https://github.com/M100-ROSE" },
+  { label: "LinkedIn", valor: "Kaike Guerlinguer", href: "https://www.linkedin.com/in/kaike-guerlinguer" },
 ];
 
 function App() {

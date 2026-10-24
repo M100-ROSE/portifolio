@@ -18,23 +18,35 @@ export function ContatoSection({ contatos }: ContatoSectionProps) {
       </p>
 
       <ul className="lista-contato">
-        {contatos.map((contato) => (
-          <li key={contato.label}>
-            {contato.href ? (
-              <a href={contato.href} target="_blank" rel="noreferrer">
-                <span className="lista-contato__no" aria-hidden="true" />
-                <span className="lista-contato__label">{contato.label}</span>
-                <span className="lista-contato__valor">{contato.valor}</span>
-              </a>
-            ) : (
-              <span className="lista-contato__indisponivel">
-                <span className="lista-contato__no" aria-hidden="true" />
-                <span className="lista-contato__label">{contato.label}</span>
-                <span className="lista-contato__valor">{contato.valor}</span>
-              </span>
-            )}
-          </li>
-        ))}
+        {contatos.map((contato, indice) => {
+          const isMailto = contato.href?.startsWith("mailto:");
+          return (
+            <li key={contato.label}>
+              {contato.href ? (
+                <a
+                  href={contato.href}
+                  target={isMailto ? undefined : "_blank"}
+                  rel={isMailto ? undefined : "noreferrer"}
+                >
+                  <span className="lista-contato__no" aria-hidden="true">
+                    {String(indice + 1).padStart(2, "0")}
+                  </span>
+                  <span className="lista-contato__label">{contato.label}</span>
+                  <span className="lista-contato__valor">{contato.valor}</span>
+                  <span className="lista-contato__seta" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <span className="lista-contato__indisponivel">
+                  <span className="lista-contato__no" aria-hidden="true">
+                    {String(indice + 1).padStart(2, "0")}
+                  </span>
+                  <span className="lista-contato__label">{contato.label}</span>
+                  <span className="lista-contato__valor">{contato.valor}</span>
+                </span>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
