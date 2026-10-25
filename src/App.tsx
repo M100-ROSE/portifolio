@@ -34,6 +34,14 @@ const projetos: Projeto[] = [
     status: "em-breve",
   },
   {
+    titulo: "Frente Democratica Popular",
+    descricao:
+      "Projeto de site institucional para a Frente Democrática Popular, utilizando React e Next.js para criar uma presença online moderna e responsiva.",
+    tags: ["React", "Next.js", "TypeScript"],
+    link: "https://github.com/M100-ROSE/FDP-PR",
+    status: "disponivel",
+  },
+  {
     titulo: "Visão computacional com OpenCV",
     descricao:
       "Experimentos com detecção e percepção visual utilizando OpenCV e MediaPipe, unindo programação e interação com o mundo real.",
@@ -46,7 +54,7 @@ const projetos: Projeto[] = [
     descricao:
       "Desenvolvimento deste próprio portfólio, utilizando React, TypeScript e Next.js para apresentar meus projetos e habilidades.",
     tags: ["React", "TypeScript"],
-    link: "https://github.com/M100-ROSE/linkthree",
+    link: "https://github.com/M100-ROSE/portfolio",
     status: "disponivel",
   },
 ];
